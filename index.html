@@ -1,71 +1,26 @@
-<section id="tools">
-  <h2>الأدوات (تعريفي)</h2>
-  <div class="grid">
-    <div class="card"><h3>ماسحات</h3><p class="muted">ما هي؟ متى تُستخدم؟ أمثلة آمنة.</p></div>
-    <div class="card"><h3>مراقبة</h3><p class="muted">جمع السجلات والتحليل.</p></div>
-    <div class="card"><h3>تقوية الأنظمة</h3><p class="muted">Hardening & Best Practices.</p></div>
-  </div>
-</section>
-
-<section id="programming">
-  <h2>البرمجة</h2>
-  <div class="grid">
-    <div class="card"><h3>Python</h3><p class="muted">أتمتة دفاعية، تحليل نصوص.</p></div>
-    <div class="card"><h3>JavaScript</h3><p class="muted">واجهات، تحقق إدخال.</p></div>
-    <div class="card"><h3>HTML/CSS</h3><p class="muted">أساسيات أمن الويب.</p></div>
-  </div>
-</section>
-
-<section id="linux">
-  <h2>كالي & آرتش (تعليمي)</h2>
-  <div class="grid">
-    <div class="card"><h3>المفاهيم</h3><p class="muted">إدارة الحزم، النظام، الصلاحيات.</p></div>
-    <div class="card"><h3>بيئات افتراضية</h3><p class="muted">مختبرات محاكاة آمنة.</p></div>
-    <div class="card"><h3>أفضل الممارسات</h3><p class="muted">أمن المستخدم والنظام.</p></div>
-  </div>
-</section>
-
-<section id="login">
-  <h2>Login تعليمي</h2>
-  <div class="login-card">
-    <input type="text" placeholder="اسم المستخدم" id="loginUser">
-    <input type="password" placeholder="كلمة المرور" id="loginPass">
-    <button onclick="doLogin()">تسجيل الدخول</button>
-    <p class="muted" id="loginMsg"></p>
-  </div>
-</section>
-
-</main>
-
 <footer>
-  <p>© 2026 جميع الحقوق محفوظة</p>
-  <p>المطور: <b>Russi</b></p>
-  <p>Instagram: <a href="https://instagram.com/wxl_services" target="_blank">@wxl_services</a> | Telegram: <a href="https://t.me/wxl_e" target="_blank">wxl_e</a></p>
+  <p>© 2026 <b>CyberDZ</b> — All Rights Reserved</p>
+  <p>المالك والمطور: <b>kolkof12 (Russi)</b></p>
+  <p>
+    Instagram:
+    <a href="https://instagram.com/wxl_services" target="_blank" style="color:#4da3ff;text-decoration:none">@wxl_services</a>
+    |
+    Telegram:
+    <a href="https://t.me/wxl_e" target="_blank" style="color:#4da3ff;text-decoration:none">@wxl_e</a>
+  </p>
 </footer>
 
 <script>
+function openPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
 function toggleTheme(){
-  const html=document.documentElement;
-  html.dataset.theme = html.dataset.theme==="dark"?"light":"dark";
+  document.documentElement.dataset.theme =
+  document.documentElement.dataset.theme==="dark"?"light":"dark";
 }
-function setLang(l){alert("Language change: "+l+" (تعليمي فقط)");}
-const defs={
-  firewall:{title:'Firewall', text:'جدار ناري يراقب حركة الشبكة وفق قواعد. مثال: منع منافذ غير مستخدمة.'},
-  encryption:{title:'Encryption', text:'تشفير البيانات لحمايتها. مثال: HTTPS.'},
-  authentication:{title:'Authentication', text:'التحقق من الهوية، كلمات مرور + 2FA.'}
-};
-function lookup(){
-  const k=document.getElementById('termInput').value.toLowerCase();
-  const box=document.getElementById('result');
-  if(defs[k]) box.innerHTML = <h3>${defs[k].title}</h3><p>${defs[k].text}</p>;
-  else box.innerHTML = '<p class="muted">مصطلح غير موجود حالياً — سيتم إضافته قريباً.</p>';
-}
-function doLogin(){
-  const u=document.getElementById('loginUser').value;
-  const p=document.getElementById('loginPass').value;
-  const msg=document.getElementById('loginMsg');
-  if(u==="test"&&p==="1234") msg.innerHTML="✅ تسجيل دخول ناجح (تعليمي فقط)";
-  else msg.innerHTML="❌ اسم مستخدم أو كلمة مرور غير صحيحة (تعليمي)";
+function setLang(l){
+  alert("Language switched to: "+l+" (واجهة فقط حالياً)");
 }
 </script>
 
